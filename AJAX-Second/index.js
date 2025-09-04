@@ -68,10 +68,36 @@ function logInUser(email, password, callback) {
   }, 1500);
 }
 
+//*10. Abhi like maan lo ye ek youtube account hai na, to hmny pehly login kia baad me hmy videos bhi chahye to usky liye ek or function bnayengy..
+
+function getUserVideos(email, callback) {
+  setTimeout(() => {
+    callback(["video1", "video2", "video3"]);
+  }, 1000);
+}
+
+//*12. Next ab mny is videos ki details nikalni hai to wo kuch esy karengy...
+function videoDetails(video, callBack) {
+  setTimeout(() => {
+    callBack("Title of the video");
+  }, 2000);
+}
+
 //*7. or yaha pr bhi pass krdengy
 const user1 = logInUser("sherry@gmail.com", 1234, () => {
   //*9. or phir console kara dengy user ko
-
   console.log(user1);
+  //*11. Jab user login ho jayega to uski videos bhi ajani chahye.. right...to kuch u karngy phir...
+
+  getUserVideos(user.userEmail, (video) => {
+    console.log(video);
+    videoDetails(video[0], (title) => {
+      console.log(title);
+    });
+  });
 });
+console.log(user1);
 console.log("end");
+
+//!Note:
+//* Agr tumny kuch note kia ho ky pehly, waha pehly mujhy user mila, phir user ki hmy videos chahye thi to uper walay function ky params me user pass karky us se videos nikalwayii, phir usi videos ki hmy details chahye thii to videoDetails ky function ky params me hmny video pass kia to hmy usky accordingky details mil gayiii...
